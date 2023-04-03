@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -21,16 +22,56 @@ namespace lab1
     /// </summary>
     public partial class Window1 : Window
     {
-        ColourTableAdapter Colour = new ColourTableAdapter();
+        ColourTableAdapter Color = new ColourTableAdapter();
         public Window1()
         {
             InitializeComponent();
-            ColourDataGrid.ItemsSource = Colour.GetData();
+            ColorDataGrid.ItemsSource = Color.GetData();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Color.InsertQuery(ColorTbx.Text);
+          //  ColorDataGrid.ItemsSource = null;
+            ColorDataGrid.ItemsSource = Color.GetData();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (ColorDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите строку, которую хотите удалить");
+                return;
+            }
+            else
+            {
+                object id = (ColorDataGrid.SelectedItem as DataRowView).Row[0];
+                Color.DeleteQuery(Convert.ToInt32(id));
+                ColorDataGrid.ItemsSource = Color.GetData();
+            }
+        }
+
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+            object id = (ColorDataGrid.SelectedItem as DataRowView).Row[0];
+            Color.UpdateQuery(ColorTbx.Text, Convert.ToInt32(id));
+            ColorDataGrid.ItemsSource = Color.GetData();
+        }
+
+        private void ColorDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ColorDataGrid.SelectedItem != null)
+            {
+                ColorTbx.Text = (string)(ColorDataGrid.SelectedItem as DataRowView).Row[1];
+                
+            }
+
         }
     }
 }

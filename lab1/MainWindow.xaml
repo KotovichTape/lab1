@@ -11,7 +11,13 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <DataGrid x:Name="HumanDataGrid" />
-        <Button Content="Должности" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="81" Width="676" Click="Button_Click" Grid.Row="1"/>
+        <DataGrid x:Name="HumanDataGrid" SelectionChanged="HumanDataGrid_SelectionChanged" />
+        <Button Content="Должности" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="50" Width="100" Click="Button_Click" Grid.Row="1" Margin="700,167,0,0" Background="Transparent"/>
+        <TextBox x:Name="HumanTbx" HorizontalAlignment="Center" Margin="0,109,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Введите фамилию" VerticalAlignment="Top" Width="504" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Добавить фамилию" HorizontalAlignment="Center" Margin="0,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="504" Height="72" Click="Button_Click_1"/>
+        <ComboBox HorizontalAlignment="Left" Margin="630,27,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="Familia"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="10,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="98" Height="72" Click="Button_Click_2"/>
+        <Button x:Name="Change" Content="Изменить" HorizontalAlignment="Left" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Width="98" Click="Change_Click"/>
+
     </Grid>
 </Window>

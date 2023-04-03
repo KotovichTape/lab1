@@ -11,7 +11,12 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <DataGrid x:Name="ColourDataGrid"/>
-        <Button Content="Фамилии" HorizontalAlignment="Center"  VerticalAlignment="Center" RenderTransformOrigin="0.615,0.522" Height="81" Width="677" Click="Button_Click" Grid.Row="1"/>
+        <DataGrid x:Name="ColorDataGrid" SelectionChanged="ColorDataGrid_SelectionChanged"/>
+        <Button Content="Фамилии" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.615,0.522" Height="50" Width="99" Click="Button_Click" Grid.Row="1" Background="Transparent" Margin="701,167,0,0"/>
+        <TextBox x:Name="ColorTbx" HorizontalAlignment="Center" Margin="0,109,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Введите должность" VerticalAlignment="Top" Width="504" />
+        <Button Content="Добавить должность" HorizontalAlignment="Center" Margin="0,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="504" Height="72" Click="Button_Click_1"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="10,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="98" Height="72" Click="Button_Click_2"/>
+        <Button x:Name="Change" Content="Изменить" HorizontalAlignment="Left" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Width="98" Click="Change_Click"/>
+
     </Grid>
 </Window>
